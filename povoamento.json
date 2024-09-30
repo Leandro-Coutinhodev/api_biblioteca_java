@@ -1,0 +1,33 @@
+{
+	"data": "25/09/2024",
+	"usuario": {
+		"nome": "Pedro",
+		"idade": 18,
+		"celular": "919939484",
+		"email": "pedro@gmail.com"
+	},
+	"livros": [
+		{
+			"titulo": "O Estrangeiro",
+			"editora": "Record",
+			"ano": 1979,
+			"autores": [
+				{
+					"nome": "Albert Camus",
+					"idade": 46
+				}
+			]
+		},
+		{
+			"titulo": "A náusea: Um romance existencialista do filósofo Jean-Paul Sartre",
+			"editora": "Nova Fronteira",
+			"ano": 2021,
+			"autores": [
+				{
+					"nome": "Jean-Paul Sartre",
+					"idade": 74
+				}
+			]
+		}
+	]
+}
