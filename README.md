@@ -1,6 +1,6 @@
 # API de registro de empréstimos de livros com Java/Spring boot + MySQL(CRUD simples)
 
-# Endpoints:
+## Endpoints:
 
 ## Salvar empréstimo:
 
