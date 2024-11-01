@@ -1,14 +1,10 @@
 package com.app.biblioteca.entitys;
 
+import java.util.Date;
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,11 +21,14 @@ public class Emprestimo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String data;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date data;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne()
 	private Usuario usuario;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@ManyToMany()
+	@JoinTable(name = "emprestimo_livro")
 	private List<Livro> livros;
 }

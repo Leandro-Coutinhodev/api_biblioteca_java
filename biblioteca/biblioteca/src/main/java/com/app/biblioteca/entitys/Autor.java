@@ -28,8 +28,4 @@ public class Autor {
 	private String nome;
 	private int idade;
 	
-	@ManyToMany(mappedBy = "autores")
-	@JsonIgnore
-	private List<Livro> livros;
-	
 }

@@ -28,8 +28,9 @@ public class Livro {
 	private String titulo;
 	private String editora;
 	private int ano;
+	private String imagem;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany()
 	@JoinTable(name = "livro_autor")
 	private List<Autor> autores;
 	

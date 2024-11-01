@@ -5,29 +5,23 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.app.biblioteca.entitys.Emprestimo;
-import com.app.biblioteca.services.BibliotecaService;
+import com.app.biblioteca.services.EmprestimoService;
 
 @RestController
-@RequestMapping("/api/biblioteca")
-public class BibliotecaController {
+@RequestMapping("/api/emprestimo")
+@CrossOrigin("*")
+public class EmprestimoController {
 
   @Autowired
-  private BibliotecaService bibliotecaService;
+  private EmprestimoService emprestimoService;
 
   @PostMapping("/save")
   public ResponseEntity<String> save(@RequestBody Emprestimo emprestimo){
     try {
-      String retorno = this.bibliotecaService.save(emprestimo);
+      String retorno = this.emprestimoService.save(emprestimo);
 
       return new ResponseEntity<>(retorno, HttpStatus.OK);
     } catch (Exception e) {
@@ -38,7 +32,7 @@ public class BibliotecaController {
   @GetMapping("/findById/{id}")
   public ResponseEntity<Emprestimo> findById(@PathVariable Long id){
     try {
-      Emprestimo emprestimo = this.bibliotecaService.findById(id);
+      Emprestimo emprestimo = this.emprestimoService.findById(id);
 
       return new ResponseEntity<>(emprestimo, HttpStatus.OK);
     } catch (Exception e) {
@@ -49,7 +43,7 @@ public class BibliotecaController {
   @GetMapping("/findAll")
   public ResponseEntity<List<Emprestimo>> findAll(){
     try {
-      List<Emprestimo> lista = this.bibliotecaService.findAll();
+      List<Emprestimo> lista = this.emprestimoService.findAll();
 
       return new ResponseEntity<>(lista, HttpStatus.OK);
     } catch (Exception e) {
@@ -60,7 +54,7 @@ public class BibliotecaController {
   @PutMapping("/update/{id}")
   public ResponseEntity<String> update(@PathVariable Long id, @RequestBody Emprestimo emprestimo){
     try {
-      String retorno = this.bibliotecaService.update(id, emprestimo);
+      String retorno = this.emprestimoService.update(id, emprestimo);
 
       return new ResponseEntity<>(retorno, HttpStatus.OK);
     } catch (Exception e) {
@@ -71,7 +65,7 @@ public class BibliotecaController {
   @DeleteMapping("/delete/{id}")
   public ResponseEntity<String> delete(@PathVariable Long id){
     try {
-      String mensagem = this.bibliotecaService.delete(id);
+      String mensagem = this.emprestimoService.delete(id);
 
       return new ResponseEntity<>(mensagem, HttpStatus.OK);
     } catch (Exception e) {

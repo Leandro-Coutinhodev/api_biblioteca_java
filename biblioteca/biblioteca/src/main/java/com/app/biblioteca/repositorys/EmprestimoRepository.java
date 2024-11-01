@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.app.biblioteca.entitys.Emprestimo;
 
 @Repository
-public interface BibliotecaRepository extends JpaRepository<Emprestimo, Long>{
+public interface EmprestimoRepository extends JpaRepository<Emprestimo, Long>{
 
 }

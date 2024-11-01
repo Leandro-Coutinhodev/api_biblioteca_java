@@ -30,8 +30,4 @@ public class Usuario {
 	private String celular;
 	private String email;
 	
-	@OneToMany(mappedBy = "usuario")
-	@JsonIgnore
-	private List<Emprestimo> emprestimos;
-	
 }
